@@ -1,10 +1,15 @@
 import express from 'express';
 import { errorHandler } from './middlewares/errorHandler';
-import logger from './utils/logger';
+import userRoutes from './routes/userRoutes';
+import preferenceRoutes from './routes/preferenceRoutes';
 
 const app = express();
 
 app.use(express.json());
+
+// Mount feature routes.
+app.use('/api/users', userRoutes);
+app.use('/api/preferences', preferenceRoutes);
 
 app.get('/', (_req, res) => {
   res.json({ status: 'Daily Dose API is running ✓' });
