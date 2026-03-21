@@ -160,7 +160,7 @@ Expected:
     "message": "Preferences saved"
   }
 }
-# ---------------Phase2 completed ✅👋--------------
+
 ### Test 3: Verify User Profile
 GET http://localhost:3000/api/users/YOUR_DEVICE_ID
 
@@ -170,7 +170,7 @@ Expected:
 - preferences.categoryWeights has selected categories at 1.0
 
 ---
-
+# ---------------Phase2 completed ✅👋--------------
 # PHASE 3 - News Ingestion (RSS + Scraping)
 
 > Goal: Fetch RSS news, scrape body text, save pending articles.
