@@ -6,6 +6,8 @@ dotenv.config(); // Load environment variables from .env file
 const envSchema = z.object({
   PORT: z.string().default('3000'),
   MONGO_URI: z.string().describe('MONGO_URI is required'),
+  MONGO_URI_DIRECT: z.string().optional(),
+  DNS_SERVERS: z.string().optional(),
   GEMINI_API_KEY: z.string().optional(),
   UNSPLASH_ACCESS_KEY: z.string().optional(),
 })
