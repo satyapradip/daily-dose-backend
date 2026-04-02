@@ -8,6 +8,11 @@ export interface IArticle extends Document {
   urlHash: string;
   rawBody: string;
   status: 'pending' | 'ready' | 'failed';
+  summary?: string;
+  keyFacts?: string[];
+  impactLevel?: 'low' | 'medium' | 'high';
+  imageUrl?: string;
+  processingError?: string;
   publishedAt: Date;
   createdAt: Date;
   updatedAt: Date;
@@ -27,6 +32,11 @@ const ArticleSchema = new Schema<IArticle>(
       default: 'pending',
       index: true
     },
+    summary: { type: String, trim: true },
+    keyFacts: { type: [String], default: [] },
+    impactLevel: { type: String, enum: ['low', 'medium', 'high'] },
+    imageUrl: { type: String, trim: true },
+    processingError: { type: String, trim: true },
     publishedAt: { type: Date, required: true, index: true }
   },
   {
