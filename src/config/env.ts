@@ -9,6 +9,7 @@ const envSchema = z.object({
   MONGO_URI_DIRECT: z.string().optional(),
   DNS_SERVERS: z.string().optional(),
   GEMINI_API_KEY: z.string().optional(),
+  ALLOW_HEURISTIC_AI_FALLBACK: z.string().optional(),
   UNSPLASH_ACCESS_KEY: z.string().optional(),
 })
 
