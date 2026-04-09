@@ -87,32 +87,35 @@ export const runIngestion = async (
 			try {
 				const urlHash = hashUrl(item.url);
 
-				// Dedupe check before scraping:
-				// if already stored, skip expensive HTTP + parsing work.
-				const existingArticle = await Article.exists({ urlHash });
-				if (existingArticle) {
-					summary.duplicatesSkipped += 1;
-					continue;
-				}
-
 				const rawBody = await scrapeArticle(item.url);
 				if (!rawBody) {
 					summary.scrapeFailures += 1;
 					continue;
 				}
 
-				await Article.create({
-					title: item.title,
-					source: item.source,
-					category: item.category,
-					url: item.url,
-					urlHash,
-					rawBody,
-					status: 'pending',
-					publishedAt: item.publishedAt
-				});
+				// Upsert keeps URL dedupe safe under concurrent ingestion runs.
+				const upsertResult = await Article.updateOne(
+					{ urlHash },
+					{
+						$setOnInsert: {
+							title: item.title,
+							source: item.source,
+							category: item.category,
+							url: item.url,
+							urlHash,
+							rawBody,
+							status: 'pending',
+							publishedAt: item.publishedAt
+						}
+					},
+					{ upsert: true }
+				);
 
-				summary.articlesCreated += 1;
+				if (upsertResult.upsertedCount > 0) {
+					summary.articlesCreated += 1;
+				} else {
+					summary.duplicatesSkipped += 1;
+				}
 			} catch (error) {
 				summary.itemFailures += 1;
 				logger.error(`Ingestion item failed (${item.url}): ${String(error)}`);
