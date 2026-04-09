@@ -70,7 +70,7 @@
 - [x] Phase 2 - User system (completed)
 - [x] Phase 3 - News ingestion (completed)
 - [x] Phase 4 - AI processing (completed)
-- [ ] Phase 5 - News delivery
+- [ ] Phase 5 - News delivery (in progress: Step 1 feed service implemented)
 - [ ] Phase 6 - Polish and deploy
 
 ---
@@ -287,4 +287,4 @@ npm install -D @types/helmet @types/cors
 
 ---
 
-Last updated: Phase 3 and Phase 4 checkpoints passed; next focus is Phase 5 news delivery.
+Last updated: Phase 5 Step 1 completed with weighted feed service and pagination; next is swipe recording and API wiring.
