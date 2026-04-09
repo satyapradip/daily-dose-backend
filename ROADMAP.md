@@ -67,9 +67,9 @@
 ## Current Status
 
 - [x] Phase 1 - Foundation (complete)
-- [ ] Phase 2 - User system (implemented, run manual tests now)
-- [ ] Phase 3 - News ingestion
-- [ ] Phase 4 - AI processing
+- [x] Phase 2 - User system (completed)
+- [x] Phase 3 - News ingestion (completed)
+- [x] Phase 4 - AI processing (completed)
 - [ ] Phase 5 - News delivery
 - [ ] Phase 6 - Polish and deploy
 
@@ -287,4 +287,4 @@ npm install -D @types/helmet @types/cors
 
 ---
 
-Last updated: Refined roadmap + production-quality Phase 2 implementation completed in code.
+Last updated: Phase 3 and Phase 4 checkpoints passed; next focus is Phase 5 news delivery.
