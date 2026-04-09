@@ -11,6 +11,10 @@ const envSchema = z.object({
   GEMINI_API_KEY: z.string().optional(),
   ALLOW_HEURISTIC_AI_FALLBACK: z.string().optional(),
   UNSPLASH_ACCESS_KEY: z.string().optional(),
+  ENABLE_BACKGROUND_JOBS: z.string().optional(),
+  INGESTION_CRON: z.string().optional(),
+  PROCESSING_CRON: z.string().optional(),
+  PROCESSING_BATCH_LIMIT: z.string().optional(),
 })
 
 const parsed = envSchema.safeParse(process.env); // Validate and parse environment variables
