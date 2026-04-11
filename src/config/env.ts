@@ -15,6 +15,8 @@ const envSchema = z.object({
   INGESTION_CRON: z.string().optional(),
   PROCESSING_CRON: z.string().optional(),
   PROCESSING_BATCH_LIMIT: z.string().optional(),
+  CLEANUP_CRON: z.string().optional(),
+  CLEANUP_RETENTION_DAYS: z.string().optional(),
 })
 
 const parsed = envSchema.safeParse(process.env); // Validate and parse environment variables
