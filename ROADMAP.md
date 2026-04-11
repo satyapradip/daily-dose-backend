@@ -70,8 +70,8 @@
 - [x] Phase 2 - User system (completed)
 - [x] Phase 3 - News ingestion (completed)
 - [x] Phase 4 - AI processing (completed)
-- [ ] Phase 5 - News delivery (in progress: Step 1 feed service implemented)
-- [ ] Phase 6 - Polish and deploy
+- [x] Phase 5 - News delivery (completed)
+- [ ] Phase 6 - Polish and deploy (in progress: Helmet + CORS integrated, regression check passed)
 
 ---
 
@@ -287,4 +287,4 @@ npm install -D @types/helmet @types/cors
 
 ---
 
-Last updated: Phase 5 Step 1 completed with weighted feed service and pagination; next is swipe recording and API wiring.
+Last updated: Phase 6 middleware hardening applied (Helmet + CORS) and full API regression passed locally.
